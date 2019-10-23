@@ -3,33 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+<!--
     <data>
         <import type="io.kamara.githubers.model.User"/>
         <import type="io.kamara.githubers.model.Result"/>
         <import type="io.kamara.githubers.model.Result.Status"/>
 
-        <import type="android.graphics.drawable.Drawable"/>
         <import type="androidx.lifecycle.LiveData"/>
-        <import type="com.bumptech.glide.request.RequestListener"/>
-
-        <variable
-            name="userViewModel"
-            type="io.kamara.githubers.viewmodels.UserViewModel" />
 
         <variable
             name="user"
             type="LiveData&lt;Result&lt;User>>" />
-
-
-        <variable
-            name="imageRequestListener"
-            type="com.bumptech.glide.request.RequestListener&lt;Drawable>" />
 
         <variable
             name="result"
             type="Result" />
 
     </data>
+-->
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +41,7 @@
                 android:layout_gravity="center"
                 android:background="@mipmap/ic_launcher"
                 android:scaleType="centerCrop"
-                app:imageFromUrl="@{user.data.avatarUrl}" />
+                android:contentDescription="TODO" />
 
             <TextView
                 android:id="@+id/name"
@@ -58,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@{user.data.name}"
+
                 app:layout_constraintStart_toEndOf="@+id/avatar"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/user_name_placeholder" />
@@ -69,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@{user.data.login}"
                 app:layout_constraintStart_toEndOf="@+id/avatar"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/user_login_placeholder" />
@@ -80,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@{user.data.reposUrl}"
                 app:layout_constraintStart_toEndOf="@+id/avatar"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/user_url_placeholder" />
@@ -93,7 +82,6 @@
                 android:layout_marginTop="@dimen/margin_normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:visibleGone="@{result.status == Status.LOADING}"
                 tools:visibility="visible" />
 
 
@@ -101,8 +89,6 @@
                 android:id="@+id/error_msg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{result.message ?? @string/unknown_error}"
-                app:visibleGone="@{result.status == Status.ERROR}"
                 tools:visibility="visible" />
         </LinearLayout>
 

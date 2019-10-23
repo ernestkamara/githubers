@@ -21,30 +21,28 @@ import javax.inject.Inject
 
 class UserFragment : BaseFragment(), Injectable {
 
-    @Inject  lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private val userViewModel: UserViewModel by viewModels { viewModelFactory }
 
-    lateinit var user : User
-
-    private val args:  UserFragmentArgs by navArgs()
+    private val args: UserFragmentArgs by navArgs()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val dateBinding = DataBindingUtil.inflate<UserFragmentBinding>(
-            inflater, R.layout.user_fragment, container, false)
-            .apply {
-                lifecycleOwner = this@UserFragment
-            }
+            inflater,
+            R.layout.user_fragment,
+            container,
+            false
+        )
 
-        userViewModel.id = "ernestkamara"
-        dateBinding.user = userViewModel.user
+        userViewModel.setLogin(args.login)
 
-        //subscribeUi(dateBinding)
+        subscribeUi(dateBinding)
 
         return dateBinding.root
     }
@@ -57,10 +55,13 @@ class UserFragment : BaseFragment(), Injectable {
                     binding.progressBar.visibility = View.GONE
                     result.data?.let { bindView(binding, it) }
                 }
+                //TODO: Move error handling to [UserFragmentBinding]
                 Result.Status.LOADING -> binding.progressBar.visibility = View.VISIBLE
                 Result.Status.ERROR -> {
                     binding.progressBar.visibility = View.GONE
-                    Snackbar.make(binding.container, result.message!!, Snackbar.LENGTH_LONG).show()
+
+                    val message = result.message ?: getString(R.string.unknown_error)
+                    Snackbar.make(binding.container, message, Snackbar.LENGTH_LONG).show()
                 }
             }
         })
@@ -70,8 +71,9 @@ class UserFragment : BaseFragment(), Injectable {
         newUser.apply {
             bindImageFromUrl(binding.avatar, avatarUrl)
             binding.name.text = name
-
-            user = newUser
+            binding.login.text = login
+            binding.reposUrl.text = reposUrl
         }
+
     }
 }

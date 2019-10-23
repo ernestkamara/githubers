@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    app:startDestination="@+id/user_detail_fragment">
+    app:startDestination="@+id/user_list_fragment">
 
     <fragment
         android:id="@+id/user_detail_fragment"
@@ -14,5 +14,19 @@
         <argument
             android:name="login"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_list_fragment"
+        android:name="io.kamara.githubers.ui.UserListFragment"
+        android:label="@string/user_list_fragment_label" >
+        <argument
+            android:name="login"
+            app:argType="string" />
+
+
+        <action
+            android:id="@+id/showUser"
+            app:destination="@id/user_detail_fragment" />
     </fragment>
 </navigation>

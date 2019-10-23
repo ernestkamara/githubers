@@ -3,4 +3,6 @@
     <dimen name="margin_normal">16dp</dimen>
     <dimen name="user_big_avatar_size">300dp</dimen>
     <dimen name="big_avatar_margin">16dp</dimen>
+    <dimen name="avatar_margin_size">64dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
 </resources>
