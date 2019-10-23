@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@+id/user_detail_fragment">
+
+    <fragment
+        android:id="@+id/user_detail_fragment"
+        android:name="io.kamara.githubers.ui.UserFragment"
+        android:label="@string/user_fragment_label"
+        tools:layout="@layout/user_fragment">
+
+        <argument
+            android:name="login"
+            app:argType="string" />
+    </fragment>
+</navigation>

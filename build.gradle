@@ -9,6 +9,7 @@ buildscript {
         daggerVerion = '2.23.1'
         retrofitVersion = '2.6.0'
         timberVersion = '4.7.1'
+        nav_version = '2.1.0'
     }
 
     repositories {
@@ -19,6 +20,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

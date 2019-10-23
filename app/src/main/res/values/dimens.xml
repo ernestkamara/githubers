@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="user_big_avatar_size">300dp</dimen>
+    <dimen name="big_avatar_margin">16dp</dimen>
+</resources>

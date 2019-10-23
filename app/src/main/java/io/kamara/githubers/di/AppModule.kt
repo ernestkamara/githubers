@@ -6,9 +6,9 @@ import android.net.ConnectivityManager
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import io.kamara.githubers.model.GithuberDatabase
-import io.kamara.githubers.model.UserDao
-import io.kamara.githubers.repository.GithuberService
+import io.kamara.githubers.db.GithuberDatabase
+import io.kamara.githubers.db.UserDao
+import io.kamara.githubers.api.GithuberService
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -20,9 +20,8 @@ class AppModule {
     @Provides
     fun provideGithuberDatabase(app: Application): GithuberDatabase {
         return Room
-            .databaseBuilder(app, GithuberDatabase::class.java, DATABASE_NAME)
+            .databaseBuilder(app, GithuberDatabase::class.java,GithuberDatabase.DATABASE_NAME)
             .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
             .build()
     }
 
@@ -40,16 +39,12 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideGithuberService(): GithuberService{
+    fun provideGithuberService(): GithuberService {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(GithuberService.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(GithuberService::class.java)
     }
 
-    companion object {
-        const val BASE_URL = "https://api.github.com"
-        const val DATABASE_NAME = "githubers"
-    }
 }

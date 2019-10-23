@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="io.kamara.githubers.model.User"/>
+        <import type="io.kamara.githubers.model.Result"/>
+        <import type="io.kamara.githubers.model.Result.Status"/>
+
+        <import type="android.graphics.drawable.Drawable"/>
+        <import type="androidx.lifecycle.LiveData"/>
+        <import type="com.bumptech.glide.request.RequestListener"/>
+
+        <variable
+            name="userViewModel"
+            type="io.kamara.githubers.viewmodels.UserViewModel" />
+
+        <variable
+            name="user"
+            type="LiveData&lt;Result&lt;User>>" />
+
+
+        <variable
+            name="imageRequestListener"
+            type="com.bumptech.glide.request.RequestListener&lt;Drawable>" />
+
+        <variable
+            name="result"
+            type="Result" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="@dimen/user_big_avatar_size"
+                android:layout_height="@dimen/user_big_avatar_size"
+                android:layout_margin="@dimen/big_avatar_margin"
+                android:layout_gravity="center"
+                android:background="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"
+                app:imageFromUrl="@{user.data.avatarUrl}" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@{user.data.name}"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/user_name_placeholder" />
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@{user.data.login}"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/user_login_placeholder" />
+
+            <TextView
+                android:id="@+id/reposUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@{user.data.reposUrl}"
+                app:layout_constraintStart_toEndOf="@+id/avatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/user_url_placeholder" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:visibleGone="@{result.status == Status.LOADING}"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/error_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{result.message ?? @string/unknown_error}"
+                app:visibleGone="@{result.status == Status.ERROR}"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
