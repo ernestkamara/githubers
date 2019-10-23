@@ -6,4 +6,6 @@
     <string name="user_login_placeholder">ernestkamara</string>
     <string name="user_url_placeholder">https://github.com/users/ernest</string>
     <string name="user_list_fragment_label">UserListFragment</string>
+    <string name="title_activity_startup">StartupActivity</string>
+    <string name="logout">Logout</string>
 </resources>

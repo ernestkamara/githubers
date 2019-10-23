@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1007276450765",
+    "firebase_url": "https://githubers-987e2.firebaseio.com",
+    "project_id": "githubers-987e2",
+    "storage_bucket": "githubers-987e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007276450765:android:0e460cf54940b9a2801a84",
+        "android_client_info": {
+          "package_name": "io.kamara.githubers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007276450765-0j7nq6lqqn894n3197alb1r47bn8qa00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEa12HaRwbxdejWqwxWBOtIBkTciP2Zrs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007276450765-0j7nq6lqqn894n3197alb1r47bn8qa00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

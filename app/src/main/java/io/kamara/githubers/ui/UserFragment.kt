@@ -2,9 +2,11 @@ package io.kamara.githubers.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -14,12 +16,13 @@ import io.kamara.githubers.R
 import io.kamara.githubers.binding.bindImageFromUrl
 import io.kamara.githubers.databinding.UserFragmentBinding
 import io.kamara.githubers.di.Injectable
+import io.kamara.githubers.model.Result
 import io.kamara.githubers.model.User
 import io.kamara.githubers.viewmodels.UserViewModel
-import io.kamara.githubers.model.Result
 import javax.inject.Inject
 
-class UserFragment : BaseFragment(), Injectable {
+
+class UserFragment : Fragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -33,6 +36,11 @@ class UserFragment : BaseFragment(), Injectable {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        setHasOptionsMenu(true)
+        activity?.actionBar?.setDisplayShowHomeEnabled(true)
+        activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
+
         val dateBinding = DataBindingUtil.inflate<UserFragmentBinding>(
             inflater,
             R.layout.user_fragment,
@@ -47,6 +55,10 @@ class UserFragment : BaseFragment(), Injectable {
         return dateBinding.root
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        menu.findItem(R.id.action_logout).isVisible = false
+    }
 
     private fun subscribeUi(binding: UserFragmentBinding) {
         userViewModel.user.observe(viewLifecycleOwner, Observer { result ->
@@ -74,6 +86,5 @@ class UserFragment : BaseFragment(), Injectable {
             binding.login.text = login
             binding.reposUrl.text = reposUrl
         }
-
     }
 }
