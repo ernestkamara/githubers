@@ -31,7 +31,6 @@ class StartupActivity : AppCompatActivity() {
     private fun createSignInIntent() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.PhoneBuilder().build(),
             AuthUI.IdpConfig.GoogleBuilder().build(),
             AuthUI.IdpConfig.AnonymousBuilder().build())
 
@@ -39,7 +38,8 @@ class StartupActivity : AppCompatActivity() {
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                .setLogo(R.drawable.key)
+                .setLogo(R.drawable.github_logo)
+                .setTheme(R.style.AppThemeFirebaseAuth)
                 .build(),
             RC_SIGN_IN)
     }
@@ -63,6 +63,7 @@ class StartupActivity : AppCompatActivity() {
 
 
     private fun navigateToMainActivity() {
+        //TODO: add in navigation and navigate using findNavController().navigate()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

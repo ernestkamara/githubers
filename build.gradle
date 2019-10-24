@@ -14,6 +14,19 @@ buildscript {
         mockitoVersion = "2.25.0"
         mockitoAndroidVersion = "2.25.0"
         googleServicesPluginVersion = '4.3.2'
+        roomVersion = '2.2.0'
+        versionMoshi = '2.6.0'
+        versionFirebaseUI = '4.3.1'
+        versionFirebaseAuth = '19.1.0'
+        versionAppcompat = '1.1.0'
+        versionConstraintlayout = '1.1.3'
+        versionKTXCore = '1.1.0'
+        versionKTXFragment = '1.2.0-beta02'
+        versionJUnit = '4.12'
+        versionJUnitExt = '1.1.1'
+        versionEspressoCore = '3.2.0'
+        verionArchCore = '2.0.0'
+        versionMockwebserver = '4.2.1'
     }
 
 

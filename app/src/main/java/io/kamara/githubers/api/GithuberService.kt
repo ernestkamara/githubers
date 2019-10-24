@@ -12,7 +12,7 @@ interface GithuberService {
     }
 
 
-    @GET("/users")
+    @GET("/users") //TODO: add {since} parameter (<https://api.github.com/users?since=135>; rel="next")
     suspend fun getUsers(): Response<List<User>>
 
 

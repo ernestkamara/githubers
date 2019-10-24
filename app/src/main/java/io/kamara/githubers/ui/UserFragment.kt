@@ -38,8 +38,7 @@ class UserFragment : Fragment(), Injectable {
     ): View? {
 
         setHasOptionsMenu(true)
-        activity?.actionBar?.setDisplayShowHomeEnabled(true)
-        activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
+        // TODO: enable homeUp navigation or maybe add toolbar to [UserFragmentBinding]
 
         val dateBinding = DataBindingUtil.inflate<UserFragmentBinding>(
             inflater,

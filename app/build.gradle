@@ -48,19 +48,18 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     // Support libraries
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation "androidx.fragment:fragment-ktx:1.2.0-beta01"
+    implementation "androidx.appcompat:appcompat:$versionAppcompat"
+    implementation "androidx.core:core-ktx:$versionKTXCore"
+    implementation "androidx.fragment:fragment-ktx:$versionKTXFragment"
 
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.constraintlayout:constraintlayout:$versionConstraintlayout"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
 
-    implementation 'androidx.room:room-runtime:2.2.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    kapt 'androidx.room:room-compiler:2.2.0'
-    implementation "androidx.room:room-ktx:2.2.0"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
@@ -68,7 +67,7 @@ dependencies {
     // Retrofi 2
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation 'com.squareup.retrofit2:converter-moshi:2.6.0'
+    implementation "com.squareup.retrofit2:converter-moshi:$versionMoshi"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glideVersion"
@@ -83,20 +82,19 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
 
-    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation "com.firebaseui:firebase-ui-auth:$versionFirebaseUI"
+    implementation "com.google.firebase:firebase-auth:$versionFirebaseAuth"
 
     // Testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation "junit:junit:$versionJUnit"
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "androidx.test.ext:junit:$versionJUnitExt"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versionEspressoCore"
 
-    testImplementation "android.arch.core:core-testing:2.0.0"
-    androidTestImplementation "android.arch.core:core-testing:2.0.0"
+    testImplementation "android.arch.core:core-testing:$verionArchCore"
+    androidTestImplementation "android.arch.core:core-testing:$verionArchCore"
 
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.2.1")
-
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versionMockwebserver"
 
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
