@@ -18,7 +18,8 @@
         <activity
             android:name=".StartupActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:label="@string/title_activity_startup">
+            android:label="@string/title_activity_startup"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
